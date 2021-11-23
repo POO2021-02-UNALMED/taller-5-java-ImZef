@@ -32,11 +32,11 @@ public class Zoologico {
 		return ubicacion;
 	}
 	
-	public void setZona(ArrayList<Zona> zonas) {
+	public void setZonas(ArrayList<Zona> zonas) {
 		this.zonas = zonas;
 	}
 	
-	public ArrayList<Zona> getZona() {
+	public ArrayList<Zona> getZonas() {
 		return zonas;
 	}
 	
