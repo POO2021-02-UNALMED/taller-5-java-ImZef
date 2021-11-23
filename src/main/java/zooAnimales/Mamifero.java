@@ -1,6 +1,6 @@
 package zooAnimales;
+
 import java.util.ArrayList;
-import gestion.Zona;
 
 public class Mamifero extends Animal{
 	private static ArrayList<Mamifero> listado;
@@ -13,34 +13,32 @@ public class Mamifero extends Animal{
 		listado.add(this);
 	}
 	
+	public Mamifero(String nombre, int edad, String habitat, String genero, boolean pelaje, int patas) {
+		this.setNombre(nombre);
+		this.setEdad(edad);
+		this.setHabitat(habitat);
+		this.setGenero(genero);
+		this.pelaje = pelaje;
+		this.patas = patas;
+		listado.add(this);
+	}
+	
 	public static int cantidadMamiferos() {
 		return listado.size();
 	}
 	
-	public Mamifero crearCaballo(String nombre, int edad, String genero, Zona zona) {
-		Mamifero.caballos += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.pelaje = true;
-		this.patas = 4;
-		this.setHabitat("pradera");
+	public static Mamifero crearCaballo(String nombre, int edad, String genero) {
+		caballos += 1;
+		Mamifero a = new Mamifero(nombre, edad, "pradera", genero, true, 4);
 		
-		return this;
+		return a;
 	}
 	
-	public Mamifero crearLeon(String nombre, int edad, String genero, Zona zona) {
-		Mamifero.leones += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.pelaje = true;
-		this.patas = 4;
-		this.setHabitat("selva");
+	public static Mamifero crearLeon(String nombre, int edad, String genero) {
+		leones += 1;
+		Mamifero a = new Mamifero(nombre, edad, "selva", genero, true, 4);
 		
-		return this;
+		return a;
 	}
 	
 	public void setPelaje(boolean pelaje) {
@@ -48,7 +46,7 @@ public class Mamifero extends Animal{
 	}
 	
 	public boolean getPelaje() {
-		return this.pelaje;
+		return pelaje;
 	}
 	
 	public void setPatas(int patas) {
@@ -56,14 +54,7 @@ public class Mamifero extends Animal{
 	}
 	
 	public int getPatas() {
-		return this.patas;
+		return patas;
 	}
 	
-	public void setListado(ArrayList<Mamifero> listado) {
-		Mamifero.listado = listado;
-	}
-	
-	public ArrayList<Mamifero> getListado(){
-		return listado;
-	}
 }

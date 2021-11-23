@@ -1,6 +1,6 @@
 package zooAnimales;
+
 import java.util.ArrayList;
-import gestion.Zona;
 
 public class Anfibio extends Animal{
 	private static ArrayList<Anfibio> listado;
@@ -13,6 +13,16 @@ public class Anfibio extends Animal{
 		listado.add(this);
 	}
 	
+	public Anfibio(String nombre, int edad, String habitat, String genero, String colorPiel, boolean venenoso) {
+		this.setNombre(nombre);
+		this.setEdad(edad);
+		this.setHabitat(habitat);
+		this.setGenero(genero);
+		this.colorPiel = colorPiel;
+		this.venenoso = venenoso;
+		listado.add(this);
+	}
+	
 	public static int cantidadAnfibios() {
 		return listado.size();
 	}
@@ -21,56 +31,33 @@ public class Anfibio extends Animal{
 		return "saltar";
 	}
 	
-	public Anfibio crearRana(String nombre, int edad, String genero, Zona zona) {
-		Anfibio.ranas += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.setHabitat("selva");
-		this.venenoso = true;
-		this.colorPiel = "rojo";
+	public static Anfibio crearRana(String nombre, int edad, String genero) {
+		ranas += 1;
+		Anfibio a = new Anfibio(nombre, edad, "selva", genero, "rojo", true);
 		
-		return this;
+		return a;
+	}
+
+	public static Anfibio crearSalamandra(String nombre, int edad, String genero) {
+		salamandras += 1;
+		Anfibio a = new Anfibio(nombre, edad, "selva", genero, "negro y amarillo", false);
+		
+		return a;
 	}
 	
-	public Anfibio crearSalamandra(String nombre, int edad, String genero, Zona zona) {
-		Anfibio.salamandras += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.setHabitat("selva");
-		this.venenoso = false;
-		this.colorPiel = "negro y amarillo";
-		
-		return this;
-		
-	}
-	
-	public void setListado(ArrayList<Anfibio> listado) {
-		Anfibio.listado = listado;
-	}
-	
-	public ArrayList<Anfibio> getListado(){
-		return listado;	
-		
-	}
-	
-	public void setColorPiel(String piel) {
-		this.colorPiel = piel;
+	public void setColorPiel(String colorPiel) {
+		this.colorPiel = colorPiel;
 	}
 	
 	public String getColorPiel() {
-		return this.colorPiel;
+		return colorPiel;
 	}
 	
-	public void setVenenoso(boolean veneno) {
-		this.venenoso = veneno;
+	public void setVenenoso(boolean venenoso) {
+		this.venenoso = venenoso;
 	}
 	
 	public boolean getVenenoso() {
-		return this.venenoso;
+		return venenoso;
 	}
-
 }

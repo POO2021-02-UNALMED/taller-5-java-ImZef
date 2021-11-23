@@ -1,6 +1,6 @@
 package zooAnimales;
+
 import java.util.ArrayList;
-import gestion.Zona;
 
 public class Pez extends Animal{
 	private static ArrayList<Pez> listado;
@@ -12,6 +12,16 @@ public class Pez extends Animal{
 	public Pez() {
 		listado.add(this);
 	}
+
+	public Pez(String nombre, int edad, String habitat, String genero, String colorEscamas, int cantidadAletas) {
+		this.setNombre(nombre);
+		this.setEdad(edad);
+		this.setHabitat(habitat);
+		this.setGenero(genero);
+		this.colorEscamas = colorEscamas;
+		this.cantidadAletas = cantidadAletas;
+		listado.add(this);
+	}
 	
 	public static int cantidadPeces() {
 		return listado.size();
@@ -21,56 +31,34 @@ public class Pez extends Animal{
 		return "nadar";
 	}
 	
-	public Pez crearSalmon(String nombre, int edad, String genero, Zona zona) {
-		Pez.salmones += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.setHabitat("oceano");
-		this.cantidadAletas = 6;
-		this.colorEscamas = "rojo";
+	public static Pez crearSalmon(String nombre, int edad, String genero) {
+		salmones += 1;
+		Pez a = new Pez(nombre, edad, "oceano", genero, "rojo", 6);
 		
-		return this;
+		return a;
 	}
 	
-	public Pez crearBacalao(String nombre, int edad, String genero, Zona zona) {
-		Pez.bacalaos += 1;
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setZona(zona);
-		this.setHabitat("oceano");
-		this.cantidadAletas = 6;
-		this.colorEscamas = "gris";
+	public static Pez crearBacalao(String nombre, int edad, String genero) {
+		bacalaos += 1;
+		Pez a = new Pez(nombre, edad, "oceano", genero, "gris", 6);
 		
-		return this;
-		
+		return a;
 	}
 	
-	public void setListado(ArrayList<Pez> listado) {
-		Pez.listado = listado;
-	}
-	
-	public ArrayList<Pez> getListado(){
-		return listado;	
-		
-	}
-	
-	public void setColorEscamas(String escamas) {
-		this.colorEscamas = escamas;
+	public void setColorEscamas(String colorEscamas) {
+		this.colorEscamas = colorEscamas;
 	}
 	
 	public String getColorEscamas() {
-		return this.colorEscamas;
+		return colorEscamas;
 	}
 	
-	public void setCantidadAletas(int aletas) {
-		this.cantidadAletas = aletas;
+	public void setCantidadAletas(int cantidadAletas) {
+		this.cantidadAletas = cantidadAletas;
 	}
 	
 	public int getCantidadAletas() {
-		return this.cantidadAletas;
+		return cantidadAletas;
 	}
-
+	
 }

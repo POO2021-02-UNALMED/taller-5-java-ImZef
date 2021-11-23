@@ -1,9 +1,9 @@
 package zooAnimales;
+
 import gestion.Zona;
-//import java.util.ArrayList;
 
 public class Animal {
-	private static int totalAnimales = 0;
+	private static int totalAnimales  = 0;
 	private String nombre;
 	private int edad;
 	private String habitat;
@@ -11,7 +11,16 @@ public class Animal {
 	private Zona zona;
 	
 	public Animal() {
-		Animal.totalAnimales += 1;
+		totalAnimales += 1;
+	}
+	
+	public Animal(String nombre, int edad, String habitat, String genero) {
+		totalAnimales += 1;
+		this.nombre = nombre;
+		this.edad = edad;
+		this.habitat = habitat;
+		this.genero = genero;
+		
 	}
 	
 	public String movimiento() {
@@ -19,17 +28,7 @@ public class Animal {
 	}
 	
 	public String totalPorTipo() {
-		return "Mamiferos: " + Mamifero.cantidadMamiferos() + "/nAves: "+ Ave.cantidadAves() + "/nReptiles: " + Reptil.cantidadReptiles() + "/nPeces: " + Pez.cantidadPeces() +  "/nAnfibios: " + Anfibio.cantidadAnfibios();
-	}
-	
-	public String toString() {
-		if(this.zona != null) {
-			return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat + " y mi genero es " + genero +", la zona en la que me ubico es " + this.zona.getNombre() + ",en el zoo " + this.zona.getZoo().getNombre() ;
-		}
-		else {
-			return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat + " y mi genero es " + genero;
-		}
-		
+		return "Mamiferos: " + Mamifero.cantidadMamiferos() + "\nAves: " + Ave.cantidadAves() + "\nReptiles: " + Reptil.cantidadReptiles() + "\nPeces: " + Pez.cantidadPeces() + "\nAnfibios: " + Anfibio.cantidadAnfibios();
 	}
 	
 	public void setNombre(String nombre) {
@@ -37,39 +36,47 @@ public class Animal {
 	}
 	
 	public String getNombre() {
-		return this.nombre;
-	}
+		return nombre;
+	}	
 	
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 	
 	public int getEdad() {
-		return this.edad;
-	}
+		return edad;
+	}	
 	
 	public void setHabitat(String habitat) {
 		this.habitat = habitat;
 	}
 	
 	public String getHabitat() {
-		return this.habitat;
-	}
+		return habitat;
+	}	
 	
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 	
 	public String getGenero() {
-		return this.genero;
-	}
+		return genero;
+	}	
 	
 	public void setZona(Zona zona) {
 		this.zona = zona;
 	}
 	
 	public Zona getZona() {
-		return this.zona;
+		return zona;
 	}
 	
+	public String toString() {
+		if(this.zona != null) {
+			return "Mi nombre es "+ nombre + ", tengo una edad de " + edad + ", habito en " + habitat + " y mi genero es " + genero + ", la zona en la que me ubico es " + zona.getNombre() + ", en el " + zona.getZoo().getNombre();
+		} else {
+			return "Mi nombre es "+ nombre + ", tengo una edad de " + edad + ", habito en " + habitat + " y mi genero es " + genero;
+		}
+	}
+
 }
