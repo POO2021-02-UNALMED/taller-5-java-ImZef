@@ -10,7 +10,7 @@ public class Pez extends Animal{
 	private int cantidadAletas;
 	
 	public Pez() {
-		listado.add(new Pez);
+
 	}
 
 	public Pez(String nombre, int edad, String habitat, String genero, String colorEscamas, int cantidadAletas) {
@@ -20,7 +20,7 @@ public class Pez extends Animal{
 		this.setGenero(genero);
 		this.colorEscamas = colorEscamas;
 		this.cantidadAletas = cantidadAletas;
-		listado.add(new Pez);
+
 	}
 	
 	public static int cantidadPeces() {
