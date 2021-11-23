@@ -18,8 +18,8 @@ public class Anfibio extends Animal{
 		this.setEdad(edad);
 		this.setHabitat(habitat);
 		this.setGenero(genero);
-		this.colorPiel = colorPiel;
-		this.venenoso = venenoso;
+		this.setColorPiel(colorPiel);
+		this.setVenenoso(venenoso);
 		listado.add(this);
 	}
 	
