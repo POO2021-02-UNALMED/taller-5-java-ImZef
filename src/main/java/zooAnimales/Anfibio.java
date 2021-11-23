@@ -1,9 +1,10 @@
 package zooAnimales;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Anfibio extends Animal{
-	private static ArrayList<Anfibio> listado;
+	private static List<Anfibio> listado = new ArrayList<Anfibio> ();
 	public static int ranas = 0;
 	public static int salamandras = 0;
 	private String colorPiel;
